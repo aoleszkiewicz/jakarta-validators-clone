@@ -20,7 +20,9 @@ public class EmailStrategy implements ValidationStrategy {
         boolean isValid = Pattern.compile(regexPattern).matcher(email).matches();
 
         if (!isValid) {
-            return Optional.of("Provided email is not valid");
+            return Optional.of(
+                    String.format("Field '%s' %s", field.getName(), annotation.message())
+            );
         }
 
         return Optional.empty();

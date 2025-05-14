@@ -20,9 +20,8 @@ public class AcademicIndexNumberStrategy implements ValidationStrategy {
 
             if (strLength != annotationLength) {
                 return Optional.of(
-                        String.format("Index number requires %d characters length",
-                                annotationLength)
-                );
+                        String.format("Field '%s' %s", field.getName(), annotation.message())
+                 );
             }
         }
 
